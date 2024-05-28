@@ -28,13 +28,18 @@ public class Main {
 
         printEmployee(employees);
         printSum (employees);
-
+        averageSum (employees);
+        printFullName (employees);
+        minSalary (employees);
+        maxSalary (employees);
     }
+    // Получить список всех сотрудников со всеми имеющимися по ним данными
     public static void printEmployee (Employee [] employees) {
         for (int i = 0; i < employees.length; i++) {
             System.out.println(employees[i]);
         }
     }
+    // Посчитать сумму затрат на ЗП в месяц
     public static int printSum (Employee [] employees) {
         int sum = 0;
         for (int i = 0; i < employees.length; i++) {
@@ -42,5 +47,46 @@ public class Main {
         }
         System.out.println("Сумма затрат на ЗП в месяц: " + sum + " руб.");
         return sum;
+    }
+    // Подсчитать среднее значение зарплат
+    public static int averageSum (Employee [] employees) {
+        int averageSum = printSum (employees) / employees.length;
+        System.out.println("Среднее значение зарплат: " + averageSum + " руб.");
+        return averageSum;
+    }
+
+    // Найти сотрудника с минимальной ЗП
+    public static int minSalary (Employee [] employees) {
+        int minSalary = Integer.MAX_VALUE;
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getSalary() < minSalary) {
+                minSalary = employees[i].getSalary();
+
+            }
+        }
+        System.out.println("Минимальная ЗП у сотрудника: " + minSalary + " руб.");
+        return minSalary;
+    }
+
+    //Найти сотрудника с максимальной ЗП
+    public static int maxSalary (Employee [] employees) {
+        int maxSalary = Integer.MIN_VALUE;
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getSalary() > maxSalary) {
+                maxSalary = employees[i].getSalary();
+            }
+        }
+        System.out.println("Максимальная ЗП у сотрудника: " + maxSalary + " руб.");
+        return maxSalary;
+    }
+    // Распечатать ФИО всех сотрудников
+    public static void printFullName (Employee [] employees) {
+        for (int i = 0; i < employees.length; i++) {
+            if (i == employees.length - 1) {
+                System.out.println("Ф.И.О  сотрудника: " + employees [i].getFullName() + ".");
+                break;
+            }
+            System.out.println("Ф.И.О  сотрудника: " + employees [i].getFullName() + ";");
+        }
     }
 }

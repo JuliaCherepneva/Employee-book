@@ -5,8 +5,8 @@ public class Employee {
     private int salary;
     private int dept;
 
-    private static int id;
-    private static final int count = 0;
+    private int id;
+    private static int count = 0;
 
     public Employee(String fullName, int salary, int dept) {
         this.fullName = fullName;
@@ -28,11 +28,11 @@ public class Employee {
     }
 
     public static int getId () {
-        return ++ id;
+        return count;
     }
 
     public static int getCount() {
-        return count;
+        return ++ count;
     }
 
     public void setDept(int dept) {
@@ -45,7 +45,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return getId() + ". " + "Ф.И.О. сотрудника: " + fullName + ". ЗП = " + salary + " руб. " + "Отдел: " + dept;
+        return getCount() + ". " + "Ф.И.О. сотрудника: " + fullName + ". ЗП = " + salary + " руб. " + "Отдел: " + dept;
     }
 
     @Override
