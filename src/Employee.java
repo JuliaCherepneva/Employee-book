@@ -4,14 +4,14 @@ public class Employee {
     private final String fullName;
     private int salary;
     private int dept;
-    private static int id;
-    private static int count = 0;
+    private final int id; // закрепляется за объектом и не меняется
+    private static int count = 1; // не привязывется к объекту
 
     public Employee(String fullName, int salary, int dept) {
         this.fullName = fullName;
         this.salary = salary;
         this.dept = dept;
-        this.id = count;
+        this.id = count ++;
     }
 
     public String getFullName() {
@@ -26,8 +26,8 @@ public class Employee {
         return dept;
     }
 
-    public static int getId () {
-        return ++ id;
+    public int getId () {
+        return id;
     }
 
     public void setDept(int dept) {

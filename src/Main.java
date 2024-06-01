@@ -18,7 +18,7 @@ public class Main  {
     // Посчитать сумму затрат на ЗП в месяц
     public static int printSum() {
         int sum = 0;
-        for (int i = 0; i < employees.length; i++) {
+        for (int i = 0; i < employees.length; i++) { // Employee employees : employees
             sum += employees[i].getSalary();
         }
         System.out.println("Сумма затрат на ЗП в месяц: " + sum + " руб.");
